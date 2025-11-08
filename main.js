@@ -44,7 +44,6 @@ function updateResult(result) {
     if (element) {
         element.innerText = result;
     }
-    // document.getElementById("result").innerText = result;    
 }   
 document.getElementById("inputValue").addEventListener('change', calculate);
 
