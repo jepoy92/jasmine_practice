@@ -11,7 +11,6 @@ function calculate(event) {
         updateResult("Operation not recognized");
         return;
     }
-    console.log(operation)
     const operator = operation[0]
 
     const calculator = new Calculator();
