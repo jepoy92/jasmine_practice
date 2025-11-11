@@ -12,8 +12,6 @@ describe("Calculator", () => {
         });
     });
 
-
-
     it("should subtract number to the total.", () => {
         const result = performOperation(30, "subtract", 5);
         expect(result).toBe(25);
@@ -31,7 +29,5 @@ describe("Calculator", () => {
 
     it("should throw error when dividing by 0", () => {
         expect(() => performOperation(10, "divide", 0)).toThrowError("Cannot divide by zero");
-
-
     })
 })
