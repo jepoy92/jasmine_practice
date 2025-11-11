@@ -1,42 +1,27 @@
-/**
- * Performs a calculator operation.
- * Validates that inputs are correct before running.
- * @param {number} startingValue
- * @param {string} operation
- * @param {number} number
- * @returns {number}
- */
+// calculatorHelper.js
+import { Calculator } from '../../calculator.js'; // adjust the path relative to this file
 
-function performOperation(startingValue, operation, number) {
-    // Validation numbers
+export function performOperation(startingValue, operation, number) {
     if(typeof startingValue !== "number" || typeof number !== "number") {
         throw new Error("Invalid number input");
     }
-
-    // Validation operation
     if(typeof operation !== "string" || !["+", "-", "*", "/"].includes(operation)) {
-        throw new Error("Operation must be a string");
+        throw new Error("Operation not accepted");
     }
 
-    // Create calculator and perform operation
     const calculator = new Calculator();
     calculator.total = startingValue;
 
     switch(operation) {
         case "add":
-        case "+" : calculator.add(number);
-            break;
+        case "+" : calculator.add(number); break;
         case "subtract":
-        case "-" :
-            calculator.subtract(number);
-            break;
+        case "-" : calculator.subtract(number); break;
         case "multiply":
-        case "*" :
-            calculator.multiply(number);
-            break;
+        case "*" : calculator.multiply(number); break;
         case "divide":
         case "/" :
-            if (number === 0) throw new Error("Cannot divide by zero");
+            if(number === 0) throw new Error("Cannot divide by zero");
             calculator.divide(number);
             break;
         default:
@@ -45,5 +30,3 @@ function performOperation(startingValue, operation, number) {
 
     return calculator.total;
 }
-
-module.exports = { performOperation };

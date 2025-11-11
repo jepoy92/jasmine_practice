@@ -1,3 +1,5 @@
+import { performOperation } from './spec/helpers/calculatorHelper.js';
+
 function calculate(event) {
     const inputValue = event.target.value.trim();
     
@@ -26,5 +28,3 @@ function updateResult(result) {
 }
   
 document.getElementById("inputValue").addEventListener('change', calculate);
-
-

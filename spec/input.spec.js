@@ -1,4 +1,4 @@
-const { performOperation } = require("./helpers/calculatorHelper.js");
+import { performOperation } from "./helpers/calculatorHelper.js"
 
 describe("Validate inputs for performOperation", () => {
     it("should throw error if startingValue is not a number", () => {
@@ -8,13 +8,13 @@ describe("Validate inputs for performOperation", () => {
         expect(() => performOperation(5, "+", "b")).toThrowError("Invalid number input");
     });
 
-    it("should throw an error if operation is not a string", () => {
+    it("should throw an error if operator is number and not a string", () => {
         expect(() => performOperation(10, 123, 5))
-            .toThrowError("Operation must be a string");
+            .toThrowError("Operation not accepted");
     });
 
-    it("should throw an error if operation is not valid", () => {
-        expect(() => performOperation(10, "modulus", 5))
-            .toThrowError("Operation not recognized");
+    it("should throw an error if operator is not accepted", () => {
+        expect(() => performOperation(10, "divide", 5))
+            .toThrowError("Operation not accepted");
     });
 });

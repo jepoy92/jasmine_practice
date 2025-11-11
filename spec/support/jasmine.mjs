@@ -6,7 +6,7 @@ export default {
     "gui.spec.js"
   ],
   helpers: [
-    "helpers/**/*.?(m)js"
+    "calculatorHelper.js",
   ],
   env: {
     stopSpecOnExpectationFailure: false,
