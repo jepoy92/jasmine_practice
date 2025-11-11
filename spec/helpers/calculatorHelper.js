@@ -1,5 +1,3 @@
-const Calculator = require("../../calculator.js");
-
 /**
  * Performs a calculator operation.
  * Validates that inputs are correct before running.
@@ -26,15 +24,18 @@ function performOperation(startingValue, operation, number) {
 
     switch(operation) {
         case "add":
-            calculator.add(number);
+        case "+" : calculator.add(number);
             break;
         case "subtract":
+        case "-" :
             calculator.subtract(number);
             break;
         case "multiply":
+        case "*" :
             calculator.multiply(number);
             break;
         case "divide":
+        case "/" :
             if (number === 0) throw new Error("Cannot divide by zero");
             calculator.divide(number);
             break;

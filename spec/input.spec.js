@@ -12,4 +12,9 @@ describe("Validate inputs for performOperation", () => {
         expect(() => performOperation(10, 123, 5))
             .toThrowError("Operation must be a string");
     });
+
+    it("should throw an error if operation is not valid", () => {
+        expect(() => performOperation(10, "modulus", 5))
+            .toThrowError("Operation not recognized");
+    });
 });

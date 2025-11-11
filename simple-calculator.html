@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
 </head>
 <body>
-    <h2>Simple Calculator</h2>
-    <div>
-        <input type="text" id="inputValue" />
-    </div>
-    <div><span>Result: </span> <span id="result"></span></div>
-    <script type= "text/javaScript" src="./calculator.js"></script>
-    <script type= "text/javaScript" src="./main.js"></script>
+  <input type = "text" id="inputValue" placeholder="e.g. 5 + 3" />
+  <div>Result: <span id="result"></span></div>
+
+  <!-- Include calculator first -->
+  <script src="./calculator.js"></script>
+  <!-- Include helper -->
+  <script src="./spec/helpers/calculatorHelper.js"></script>
+  <!-- Include main GUI code -->
+  <script src="./main.js"></script>
 </body>
 </html>

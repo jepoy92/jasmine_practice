@@ -1,49 +1,30 @@
 function calculate(event) {
-    const inputValue = event.target.value;
-    const expression = /\+|\*|\-|\//;
-
-    const numbers = inputValue.split(expression);
-    const numberA = +numbers[0];
-    const numberB = +numbers[1];
-
-    const operation = inputValue.match(expression)
-    if (isNaN(numberA) || isNaN(numberB) || operation === null) {
+    const inputValue = event.target.value.trim();
+    
+    const match = inputValue.match(/^(\d+)\s*([\+\-\*\/])\s*(\d+)$/);
+    if (!match) {
         updateResult("Operation not recognized");
         return;
     }
-    const operator = operation[0]
 
-    const calculator = new Calculator();
-    calculator.add(numberA);
-    
-    let result;
-    switch(operator) {
-        case "+":
-            result = calculator.add(numberB);
-            break;
-        case "-":
-            result = calculator.subtract(numberB);
-            break;
-        case "*":
-            result = calculator.multiply(numberB);
-            break;
-        case "/":
-            result = calculator.divide(numberB);
-            break;
+    const [, startStr, operator, endStr ] = match;
+    const numberA = Number(startStr);
+    const numberB = Number(endStr);
+
+    try {
+        const total = performOperation(numberA, operator, numberB);
+        updateResult(total);
+    } catch (error) {
+        updateResult(error.message);
     }
-    if (result === undefined) {
-        updateResult("Undefined");
-        return;
-    }
-    updateResult(result);
 }
 
+
 function updateResult(result) {
-    let element = document.getElementById("result");
-    if (element) {
-        element.innerText = result;
-    }
-}   
+    const element = document.getElementById("result");
+    if (element) element.innerText = result;
+}
+  
 document.getElementById("inputValue").addEventListener('change', calculate);
 
 

@@ -1,7 +1,9 @@
 export default {
   spec_dir: "spec",
   spec_files: [
-    "../spec/input.spec.js"
+    "calculator.spec.js",
+    "input.spec.js",
+    "gui.spec.js"
   ],
   helpers: [
     "helpers/**/*.?(m)js"
